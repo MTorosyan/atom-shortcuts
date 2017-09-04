@@ -13,7 +13,11 @@ module.exports = AtomShortcuts =
   activate: (state) ->
     @window = document.createElement 'div'
     @window.className = 'atom-shortcuts'
-    @window.innerHTML = @html
+    os = navigator.platform;
+    if os = "Win32"
+      @window.innerHTML = @htmlwin
+    else
+      @window.innerHTML = @html
     @window.style.display = 'none'
     document.body.appendChild(@window)
     @keyDown = @keyDown.bind(@)
@@ -87,7 +91,7 @@ module.exports = AtomShortcuts =
       <div class='section'>
         <h2>View/Window Manipulation</h2>
         <div class='item'>
-          <p><b>⌘+ \</b></p>
+          <p><b>⌘+ \\</b></p>
           Toggle tree-view sidebar
         </div>
         <div class='item'>
@@ -116,7 +120,7 @@ module.exports = AtomShortcuts =
           Toggle file finder
         </div>
         <div class='item'>
-          <p><b>ctrl + g></b></p>
+          <p><b>ctrl + g</b></p>
           Goto line
         </div>
         <div class='item'>
@@ -173,7 +177,6 @@ module.exports = AtomShortcuts =
       <!-- /Word Manipulation -->
     </div>
     <!-- /Second column -->
-
     <!-- Third column -->
     <div class='one-third left'>
       <!-- Line Manipulation -->
@@ -237,3 +240,197 @@ module.exports = AtomShortcuts =
     </div>
     <!-- /Third column -->
   "
+  htmlwin: "
+  <!-- First column -->
+  <div class='one-third left'>
+    <!-- General section -->
+    <div class='section'>
+      <h2>General</h2>
+      <div class='item'>
+        <p><b>ctrl + shift + p</b></p>
+        Toggle command palette
+      </div>
+      <div class='item'>
+        <p><b>ctrl + /</b></p>
+        Toggle line/selection comment
+      </div>
+      <div class='item item-last'>
+        <p><b>ctrl + space</b></p>
+        Show available auto-completions
+      </div>
+    </div>
+    <!-- /General section -->
+    <!-- Find section -->
+    <div class='section'>
+      <h2>Find</h2>
+      <div class='item'>
+        <p><b>ctrl + f</b></p>
+        Find in file
+      </div>
+      <div class='item'>
+        <p><b>F3</b></p>
+        Find next
+      </div>
+      <div class='item'>
+        <p><b>ctrl + shift + f</b></p>
+        Find in project
+      </div>
+      <div class='item item-last'>
+        <p><b>ctrl + e</b></p>
+        Use selection for find
+      </div>
+    </div>
+    <!-- /Find section -->
+    <!-- View/Window Manipulation -->
+    <div class='section'>
+      <h2>View/Window Manipulation</h2>
+      <div class='item'>
+        <p><b>ctrl + \\</b></p>
+        Toggle tree-view sidebar
+      </div>
+      <div class='item'>
+        <p><b>F11</b></p>
+        Toggle fullscreen
+      </div>
+      <div class='item'>
+      <p><b>ctrl + k, left/right/up/down</b></p>
+        Split pane left/right/up/down
+      </div>
+      <div class='item item-last'>
+        <p><b>ctrl + k, ctrl + left/right/up/down</b></p>
+        Focus pane left/right/up/down
+      </div>
+    </div>
+    <!-- /View/Window Manipulation -->
+  </div>
+  <!-- /First column -->
+  <!-- Second column -->
+  <div class='one-third left'>
+    <!-- File Navigation section -->
+    <div class='section'>
+      <h2>File Navigation</h2>
+      <div class='item'>
+        <p><b>ctrl + p</b></p>
+        Toggle file finder
+      </div>
+      <div class='item'>
+        <p><b>ctrl + g</b></p>
+        Goto line
+      </div>
+      <div class='item'>
+        <p><b>ctrl + r</b></p>
+        Goto symbol
+      </div>
+      <div class='item'>
+        <p><b>ctrl + shift + { / }</b></p>
+        Previous/next file
+      </div>
+      <div class='item'>
+        <p><b>ctrl + alt + F2</b></p>
+        Set bookmark
+      </div>
+      <div class='item item-last'>
+        <p><b>F2</b></p>
+        Goto next bookmark
+      </div>
+    </div>
+    <!-- /File Navigation section -->
+    <!-- Folding section -->
+    <div class='section'>
+      <h2>Folding</h2>
+      <div class='item'>
+        <p><b>ctrl + alt + [ / ]</b></p>
+        Fold/unfold current code block
+      </div>
+      <div class='item'>
+        <p><b>ctrl + alt + shift [ / ]</b></p>
+        Fold/unfold all code blocks
+      </div>
+      <div class='item item-last'>
+        <p><b>ctrl + 1-9</b></p>
+        Fold code blocks at depth 1-9
+      </div>
+    </div>
+    <!-- /Folding section -->
+    <!-- Word Manipulation -->
+    <div class='section'>
+      <h2>Word Manipulation</h2>
+      <div class='item'>
+        <p><b>ctrl + t</b></p>
+        Transpose characters either side of cursor
+      </div>
+      <div class='item'>
+        <p><b>ctrl + backspace</b></p>
+        Delete text to beginning of word
+      </div>
+      <div class='item item-last'>
+        <p><b>ctrl + delete</b></p>
+        Delete text to end of word
+      </div>
+    </div>
+    <!-- /Word Manipulation -->
+  </div>
+  <!-- /Second column -->
+  <!-- Third column -->
+  <div class='one-third left'>
+    <!-- Line Manipulation -->
+    <div class='section'>
+      <h2>Line Manipulation</h2>
+      <div class='item'>
+        <p><b>ctrl + ] / [</b></p>
+        Indent/outdent current line
+      </div>
+      <div class='item'>
+        <p><b>ctrl + enter</b></p>
+        Insert new line after current line
+      </div>
+      <div class='item'>
+        <p><b>ctrl + shift + enter</b></p>
+        Insert new line before current line
+      </div>
+      <div class='item'>
+        <p><b>ctrl + shift + k</b></p>
+        Delete current line
+      </div>
+      <div class='item'>
+        <p><b>ctrl + up/down</b></p>
+        Move current line up/down
+      </div>
+      <div class='item'>
+        <p><b>ctrl + shift + d</b></p>
+        Duplicate current line
+      </div>
+      <div class='item item-last'>
+        <p><b>ctrl + j</b></p>
+        Join current and next lines
+        </div>
+      </div>
+    <!-- /Line Manipulation -->
+    <!-- Selection -->
+    <div class='section'>
+      <h2>Selection</h2>
+      <div class='item'>
+        <p><b>ctrl + d</b></p>
+        Select current word/token
+        </div>
+      <div class='item'>
+        <p><b>ctrl + l</b></p>
+        Select current line
+      </div>
+      <div class='item'>
+        <p><b>ctrl + shift + left/right</b></p>
+        Select to beginning/end of word
+      </div>
+      <div class='item'>
+        <p><b>ctrl + shift + left/right</b></p>
+        Select to first/last character of line
+      </div>
+      <div class='item item-last'>
+        <p><b>ctrl + shift + up/down</b></p>
+        Select to top/bottom of document
+      </div>
+    </div>
+    <!-- /Line Manipulation -->
+  </div>
+  <!-- /Third column -->
+"
